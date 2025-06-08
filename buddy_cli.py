@@ -242,8 +242,8 @@ Use 'allocate <size>' to test different allocation sizes
         total_used_blocks = int(total_used/MEMORY_SIZE*60)
         total_free_blocks = int(total_free/MEMORY_SIZE*60)
 
-        free_blocks_viz = Colors.GREEN + block_char * total_used_blocks
-        used_blocks_viz = Colors.RED + block_char * total_free_blocks
+        free_blocks_viz = Colors.RED + block_char * total_used_blocks
+        used_blocks_viz = Colors.GREEN + block_char * total_free_blocks
 
         print(f"{free_blocks_viz}{used_blocks_viz}")
         
