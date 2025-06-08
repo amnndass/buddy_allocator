@@ -164,7 +164,7 @@ void *my_malloc (unsigned size) {
 
 //printing the info
 void mem_print(void) {
-    puts("--- memory ---");
+    puts("--- memory --- status");
 
     printf(
         "%-2s | %-12s | %-6s | %-6s\n",
@@ -184,4 +184,23 @@ void mem_print(void) {
     for (size_t i = 0; i <= state.max_pow2; ++i)
         for (Block *trav = state.used[i]; trav; trav = trav->next)
             printf("%2zu: %s\n", i, (char *)(trav + 1));
+            
 }
+
+void mem_stats(int *total_free, int *total_used) {
+    *total_free = 0;
+    *total_used = 0;
+
+    for (size_t i = 0; i <= state.max_pow2; ++i) {
+        *total_free += state.num_free[i] * (1 << i);
+        *total_used += state.num_used[i] * (1 << i);
+    }
+}
+
+// void block_data_for_visual(void) {
+    
+// }
+
+
+//calculate power of 2
+//  * (1 << i)
